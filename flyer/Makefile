@@ -13,9 +13,9 @@ clean:
 
 # SUFFIX rules
 .tex.dvi:
-	platex $<
-	#platex $<
-	#platex $<
+	uplatex $<
+	#uplatex $<
+	#uplatex $<
 .dvi.pdf:
 	dvipdfmx $<
 .png.eps:
