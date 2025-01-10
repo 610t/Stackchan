@@ -1,5 +1,5 @@
 IMAGES_PNG= img/cosense.png img/discord.png img/X.png img/stackchan-salespoint.png
-IMAGES_JPG= img/stackchan-body-history.jpg
+IMAGES_JPG= img/stackchan-body-history.jpg img/stackchans.jpg
 IMAGES_EPS= $(IMAGES_PNG:%.png=%.eps) $(IMAGES_JPG:%.jpg=%.eps)
 .SUFFIXES: .tex .dvi .pdf .png .eps .jpg
 
