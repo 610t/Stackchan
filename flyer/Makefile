@@ -5,6 +5,9 @@ IMAGES_EPS= $(IMAGES_PNG:%.png=%.eps) $(IMAGES_JPG:%.jpg=%.eps)
 
 all: flyer.pdf ${IMAGES_EPS}
 
+deploy: flyer.pdf
+	scp flyer.pdf sacraya.610t.org:/usr/local/www/nginx/Stackchan/
+
 clean:
 	rm *.pdf *.dvi *.log *.aux ${IMAGES_EPS}
 
