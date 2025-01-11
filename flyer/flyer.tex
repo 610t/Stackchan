@@ -24,15 +24,16 @@
 \renewcommand\section{\@startsection{section}{1}{\z@}%
   {-3.5ex \@plus -.75ex}%
   {1ex} %{1.5ex}%
-  {\normalfont\Large\sectfont\color{NavyBlue}}}
+  {\normalfont\Large\sectfont\color{NavyBlue}\addul}}
+\newcommand{\addul}[1]{\underline{#1}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
   {-2.5ex plus -.5ex}%
   {1\p@} %{1ex}%
-  {\normalfont\large\sectfont\color{Green}}}
+  {\normalfont\large\sectfont\color{Green}\addul}}
   \renewcommand\subsubsection{\@startsection{subsubsection}{2}{\z@}%
   {-1.5ex plus -.25ex}%
   {0.5\p@} %{1ex}%
-  {\normalfont\normalsize\sectfont\color{Emerald}}}
+  {\normalfont\normalsize\sectfont\color{Emerald}\addul}}
   \makeatother
 
 \graphicspath{{figures/}} 
