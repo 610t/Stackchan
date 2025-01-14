@@ -1,17 +1,27 @@
-IMAGES_SVG= img/stackchan.svg img/stackchan-photo.svg
-IMAGES_PNG= img/cosense.png img/discord.png img/X.png \
-  img/stackchan-salespoint.png img/Stackchan_flyer.png img/stackchan-many.png 
-IMAGES_JPG= img/stackchan-body-history.jpg img/stackchans.jpg
-IMAGES_EPS= $(IMAGES_PNG:%.png=%.eps) $(IMAGES_JPG:%.jpg=%.eps) $(IMAGES_JPG:%.svg=%.eps)
-.SUFFIXES: .tex .dvi .pdf .png .eps .jpg .svg
+SUBDIRS= img/
+.SUFFIXES: .tex .dvi .pdf
 
-all: flyer.pdf ${IMAGES_EPS}
+all: flyer.pdf 
+
+#flyer.pdf: 
+#	dvipdfmx $<
+
+flyer.dvi: flyer.tex
+	(cd img;make)
+	uplatex $<
+	
 
 deploy: flyer.pdf
 	scp flyer.pdf sacraya.610t.org:/usr/local/www/nginx/Stackchan/
 
 clean:
+	(cd img;make clean)
 	rm *.pdf *.dvi *.log *.aux ${IMAGES_EPS}
+
+$(SUBDIRS) : FORCE
+	(cd $<; make)
+
+FORCE:
 
 # SUFFIX rules
 .tex.dvi:
@@ -20,9 +30,3 @@ clean:
 	#uplatex $<
 .dvi.pdf:
 	dvipdfmx $<
-.png.eps:
-	magick convert $< $@
-.jpg.eps:
-	magick convert $< $@
-.svg.eps:
-	magick convert $< $@
