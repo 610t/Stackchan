@@ -3,13 +3,9 @@ SUBDIRS= img/
 
 all: flyer.pdf 
 
-#flyer.pdf: 
-#	dvipdfmx $<
-
 flyer.dvi: flyer.tex
 	(cd img;make)
 	uplatex $<
-	
 
 deploy: flyer.pdf
 	scp flyer.pdf sacraya.610t.org:/usr/local/www/nginx/Stackchan/
